@@ -26,6 +26,42 @@ public class MemberDAO {
 		}
 		return rst;
 	}
+	public int delete(String id){
+		int rst = 0;
+		Connection conn = null;
+		PreparedStatement ps = null;
+		try{
+			conn = ConnUtil.getConnection();
+			String sql = "delete from student where id = ?";
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, id);
+			rst = ps.executeUpdate();
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			ConnUtil.close(ps, conn);
+		}
+		return rst;
+	}
+	public int update(String id, String phone){
+		int rst = 0;
+		Connection conn = null;
+		PreparedStatement ps = null;
+		try{
+			conn = ConnUtil.getConnection();
+			String sql = "update student set phone = ? where id = ?";
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, phone);
+			ps.setString(2, id);
+			rst = ps.executeUpdate();
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			ConnUtil.close(ps, conn);
+		}
+		return rst;
+	}
+	
 		
 }
 
