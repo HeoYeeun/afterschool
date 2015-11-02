@@ -30,15 +30,7 @@ public class studentInfo{
 				dao.add(id, name, department, phone);
 				System.out.println("학생등록이 완료되었습니다.");
 				break;
-			case 2:
-				System.out.println("*********** 학생수정 ************* ");
-				System.out.println("수정하고 싶은 학생의 ID: ");
-				id = key.next();
-				System.out.println("수정할 휴대폰 번호를 입력하세요: ");
-				phone = key.next();
-				dao.update(id,phone);
-				System.out.println("학생수정이 완료되었습니다.");
-				break;
+			
 			case 4:
 				System.out.println("*********** 학생삭제 ************* ");
 				System.out.println("삭제하고 싶은 학생의 ID: ");
